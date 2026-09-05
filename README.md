@@ -32,9 +32,9 @@ Uygulamayı tarayıcınızda doğrudan deneyimlemek için:
 
 Merhaba! Ben Beyza.
 
-İşe alım süreçlerinde adayların yalnızca teknik yeterliliklerini değil; takım uyumu, stres yönetimi, sorumluluk bilinci ve iletişim tarzı gibi temel davranışsal dinamiklerini ölçümlemenin uzun vadeli başarı için vazgeçilmez olduğunu gözlemledim.
+Gerek ekip çalışmalarında gerekse profesyonel iş hayatında, bir adayın uzun vadeli başarısını yalnızca teknik bilgisinin değil; stres anındaki soğukkanlılığının, sorumluluk bilincinin ve takımla kurduğu iletişimin belirlediğini sıkça görüyoruz. Ancak geleneksel özgeçmiş taramaları ve klasik mülakatlar, bu kritik davranışsal dinamikleri ölçmekte çoğu zaman yetersiz kalabiliyor ya da öznel yorumlara dayanıyor.
 
-PsychoMatch HR; insan kaynakları uzmanlarına bilimsel temelli, anlık ve objektif bir karar destek aracı sunmak amacıyla geliştirdiğim bir değerlendirme platformudur. Küresel geçerliliği kanıtlanmış Big Five (OCEAN) modelini temel alarak adayın profilini analiz eder, hedeflenen pozisyona uygunluk skorunu hesaplar ve sosyal beğenirlik (Lie Scale) algoritmasıyla yanıtların samimiyet düzeyini denetler.
+PsychoMatch HR projesini tam olarak bu ihtiyaca pratik, modern ve bilimsel bir çözüm getirmek amacıyla geliştirdim. Küresel geçerliliği kanıtlanmış Big Five (OCEAN) kişilik modelini temel alan bu platform; adayların çalışma tarzını ve pozisyon uyumluluğunu objektif verilerle analiz ediyor, sosyal beğenirlik (Lie Scale) denetimiyle yanıtların güvenilirliğini ölçüyor ve İK profesyonellerine karar süreçlerinde rehberlik eden anlık raporlar sunuyor.
 
 ---
 
