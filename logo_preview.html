@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsychoMatch HR - Logo Konsept Ön İzleme</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #F8FAFC;
+            padding: 40px 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .preview-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .preview-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .preview-header h1 {
+            font-size: 2.2rem;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+        .preview-header p {
+            color: #64748B;
+            font-size: 1.1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 24px;
+        }
+        .concept-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .concept-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
+        }
+        .img-wrapper {
+            width: 100%;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .img-wrapper img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .card-body {
+            padding: 24px;
+        }
+        .badge {
+            display: inline-block;
+            background: #EEF2FF;
+            color: #4F46E5;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+        .card-desc {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #4F46E5;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <a href="index.html" class="back-link">← Ana Uygulamaya Dön</a>
+        
+        <div class="preview-header">
+            <h1>PsychoMatch HR — Marka Logo Konseptleri</h1>
+            <p>Aşağıdaki 4 konsept arasından markanıza en çok uyan tasarımı seçebilirsiniz.</p>
+        </div>
+
+        <div class="grid">
+            <!-- Konsept 1 -->
+            <div class="concept-card">
+                <div class="img-wrapper">
+                    <img src="concepts/concept1.jpg" alt="Konsept 1 - Psi Network">
+                </div>
+                <div class="card-body">
+                    <span class="badge">KONSEPT 1</span>
+                    <h2 class="card-title">Psi & Match Network</h2>
+                    <p class="card-desc">Psikolojinin sembolü <strong>Psi (&Psi;)</strong> harfini İK veri ağları ve aday eşleşme düğümleriyle birleştiren bilimsel ve teknolojik kurumsal logo.</p>
+                </div>
+            </div>
+
+            <!-- Konsept 2 -->
+            <div class="concept-card">
+                <div class="img-wrapper">
+                    <img src="concepts/concept2.jpg" alt="Konsept 2 - Ocean Wave">
+                </div>
+                <div class="card-body">
+                    <span class="badge">KONSEPT 2</span>
+                    <h2 class="card-title">Ocean & Mind Wave</h2>
+                    <p class="card-desc">Big Five (OCEAN) kişilik modelini temsil eden akıcı zihin ve dalga profili. İnsan psikolojisinin derinliğini simgeler.</p>
+                </div>
+            </div>
+
+            <!-- Konsept 3 -->
+            <div class="concept-card">
+                <div class="img-wrapper">
+                    <img src="concepts/concept3.jpg" alt="Konsept 3 - Synergy Pulse">
+                </div>
+                <div class="card-body">
+                    <span class="badge">KONSEPT 3</span>
+                    <h2 class="card-title">Synergy Pulse</h2>
+                    <p class="card-desc">Aday ve pozisyon uyum nabzını (pulse) simgeleyen modern uygulama ikonu stili. Mobil ve web için şık görünüm.</p>
+                </div>
+            </div>
+
+            <!-- Konsept 4 -->
+            <div class="concept-card">
+                <div class="img-wrapper">
+                    <img src="concepts/concept4.jpg" alt="Konsept 4 - PM Monogram">
+                </div>
+                <div class="card-body">
+                    <span class="badge">KONSEPT 4</span>
+                    <h2 class="card-title">PM Monogram & Match</h2>
+                    <p class="card-desc"><strong>P</strong> ve <strong>M</strong> harflerinden oluşan, içinde gizli insan silüeti ve onay imi barındıran güçlü B2B kurumsal logosu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

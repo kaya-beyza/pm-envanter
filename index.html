@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsychoMatch HR - İşe Alım Psikolojik Envanteri & Değerlendirme Platformu</title>
+    
+    <!-- Favicon (Sekme Simgesi) -->
+    <link rel="icon" type="image/png" href="logo.png?v=4">
+    
+    <!-- Ana CSS stil dosyam -->
+    <link rel="stylesheet" href="style.css?v=mobile100">
+
+    <!-- Radar grafiği için Chart.js kütüphanesi -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Üst nav menüsü ve logo -->
+    <header class="app-header">
+        <div class="brand">
+            <img src="logo.png?v=4" alt="PsychoMatch HR" class="brand-icon">
+            <div class="brand-info">
+                <span class="brand-title">PsychoMatch HR</span>
+                <span class="brand-tag">Kurumsal Psikometrik Değerlendirme</span>
+            </div>
+        </div>
+        <nav class="nav-tabs">
+            <button class="nav-btn active" data-target="welcomeView">Aday Testi</button>
+            <button class="nav-btn" data-target="hrDashboardView">İK Yönetim Paneli</button>
+        </nav>
+    </header>
+
+    <!-- Ana uygulama konteyneri -->
+    <main class="app-container">
+
+        <!-- 1. Ekran: Karşılama ve Aday Bilgi Formu -->
+        <section class="view active" id="welcomeView">
+            <div class="welcome-hero">
+                <span class="badge">Big Five (OCEAN) Modeli</span>
+                <h1 class="hero-title">İşe Alım Psikolojik Envanteri</h1>
+                <p class="hero-sub">Adayların kişilik boyutlarını, çalışma tarzını ve pozisyon uyumluluğunu objektif verilerle ölçümleyin.</p>
+            </div>
+
+            <div class="candidate-form-card">
+                <form id="candidateForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="candidateName">Adınız Soyadınız *</label>
+                            <input type="text" id="candidateName" placeholder="Örn. Beyza Yılmaz" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="candidateEmail">E-posta Adresiniz *</label>
+                            <input type="email" id="candidateEmail" placeholder="beyza@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experienceSelect">Deneyim Seviyeniz</label>
+                            <select id="experienceSelect">
+                                <option value="Yeni Mezun / 0-1 Yıl">Yeni Mezun / 0-1 Yıl</option>
+                                <option value="1-3 Yıl">1-3 Yıl</option>
+                                <option value="3-5 Yıl" selected>3-5 Yıl</option>
+                                <option value="5-8 Yıl">5-8 Yıl</option>
+                                <option value="8+ Yıl Kıdemli">8+ Yıl Kıdemli</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="targetRoleSelect">Başvurulan Pozisyon *</label>
+                            <select id="targetRoleSelect">
+                                <!-- JS ile dinamik dolduruyorum -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="btn-submit-wrapper">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Değerlendirme Testine Başla →
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 2. Ekran: Test Soruları Ekranı -->
+        <section class="view" id="testView">
+            <div class="test-header">
+                <div class="counter-badge">
+                    Soru: <span id="currentQNum">1</span> / <span id="totalQNum">20</span>
+                </div>
+                <div class="timer-chip">
+                    Süre: <span id="timerDisplay">00:00</span>
+                </div>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="category-tag" id="categoryTag">Kategori Yükleniyor...</div>
+                <h2 class="question-text" id="questionText">Soru yükleniyor...</h2>
+                <div id="questionOptions">
+                    <!-- Seçenekler JS ile dinamik basılıyor -->
+                </div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn btn-secondary" id="prevBtn" disabled>← Önceki Soru</button>
+                <button class="btn btn-primary" id="nextBtn" disabled>Sonraki Soru →</button>
+            </div>
+        </section>
+
+        <!-- 3. Ekran: Değerlendirme Raporu Ekranı -->
+        <section class="view" id="resultsView">
+            <div class="results-dashboard">
+                <div class="results-header">
+                    <div class="candidate-summary-badge">
+                        <h2 id="repCandidateName">Aday Adı</h2>
+                        <p id="repCandidateDetails">Pozisyon • Deneyim • Email</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="printResults()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                        Raporu Yazdır / PDF İndir
+                    </button>
+                </div>
+
+                <!-- Skor Özet Kartları -->
+                <div class="score-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-title">Pozisyon Uyum Skoru</div>
+                        <div class="kpi-value" id="repJobMatchScore">%0</div>
+                        <div class="kpi-sub">Hedef pozisyon profil matrisi kıyası</div>
+                    </div>
+                    <div class="kpi-card sincerity">
+                        <div class="kpi-title">Samimiyet & Dürüstlük İndeksi</div>
+                        <div class="kpi-value-badge" id="repSincerityStatus">Yüksek</div>
+                        <div class="kpi-sub">Sosyal beğenirlik & kontrol analizi</div>
+                    </div>
+                    <div class="kpi-card duration">
+                        <div class="kpi-title">Test Tamamlama Süresi</div>
+                        <div class="kpi-value" id="repDuration">0 dk</div>
+                        <div class="kpi-sub">Kararlılık & odaklanma göstergesi</div>
+                    </div>
+                </div>
+
+                <!-- Grafikler -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-card-title">Big Five Kişilik Radar Grafiği</div>
+                        <div class="radar-wrapper">
+                            <canvas id="radarChartCanvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-card-title">Kişilik Boyut Dağılımı</div>
+                        <div class="dimension-bars-list" id="dimensionBarsList">
+                            <!-- JS ile dolduruyorum -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Niteliksel İpuçları ve İK Not Alanı -->
+                <div class="insights-grid">
+                    <div class="insight-card strengths">
+                        <h4>Öne Çıkan Güçlü & Gelişim Yönleri</h4>
+                        <ul class="bullet-list" id="strengthsList">
+                            <!-- Madde listesi -->
+                        </ul>
+                    </div>
+                    <div class="insight-card notes">
+                        <h4>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 6px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            İK Mülakat & Değerlendirme Notları
+                        </h4>
+                        <textarea id="hrNotesInput" placeholder="Aday hakkındaki mülakat izlenimlerinizi, görüşme notlarınızı ve nihayi değerlendirmelerinizi buraya yazabilirsiniz... (Rapor çıktısına dahil edilir)"></textarea>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn btn-secondary" onclick="AppController.showView('welcomeView')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                        Yeni Değerlendirme Başlat
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Ekran: İK Yönetim ve Geçmiş Paneli -->
+        <section class="view" id="hrDashboardView">
+            <div style="text-align: left; margin-bottom: 24px;">
+                <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--dark-slate);">İK Yönetim & Aday Geçmişi Paneli</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Tamamlanan değerlendirme testleri ve aday uyum skorları.</p>
+            </div>
+
+            <div class="hr-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aday Adı & İletişim</th>
+                            <th>Başvurulan Pozisyon</th>
+                            <th>Uyum Skoru</th>
+                            <th>Samimiyet</th>
+                            <th>Tarih</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hrTableBody">
+                        <!-- JS ile aday geçmişini basıyorum -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JS Modüllerim -->
+    <script src="js/questions.js?v=200"></script>
+    <script src="js/roles.js?v=200"></script>
+    <script src="js/scoring.js?v=200"></script>
+    <script src="js/app.js?v=200"></script>
+
+</body>
+</html>
