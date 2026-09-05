@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Big Five (OCEAN) modeli, pozisyon uyum matrisleri ve samimiyet analizi sunan interaktif aday değerlendirme platformu.
+  Big Five (OCEAN) Modeli, Pozisyon Uyum Matrisleri ve Samimiyet Analizi sunan İnteraktif Aday Değerlendirme Platformu.
 </p>
 
 <p align="center">
