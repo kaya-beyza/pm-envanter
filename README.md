@@ -127,7 +127,5 @@ Projeyi yerel makinenizde çalıştırmak için herhangi bir paket yöneticisi v
 
 ## İletişim
 
-Görüş, öneri veya iş birliği için bana aşağıdaki kanallardan ulaşabilirsiniz:
-
 - GitHub: [github.com/kaya-beyza](https://github.com/kaya-beyza)
 - E-posta: [beyzzakayya@gmail.com](mailto:beyzzakayya@gmail.com)
