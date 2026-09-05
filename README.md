@@ -126,7 +126,6 @@ Projeyi yerel makinenizde çalıştırmak için herhangi bir paket yöneticisi v
 ---
 
 ## İletişim
-Beyza Kaya
-
+**Beyza Kaya** 
 - GitHub: [github.com/kaya-beyza](https://github.com/kaya-beyza)
 - E-posta: [beyzzakayya@gmail.com](mailto:beyzzakayya@gmail.com)
